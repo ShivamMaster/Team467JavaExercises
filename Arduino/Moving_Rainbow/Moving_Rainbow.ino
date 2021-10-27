@@ -5,34 +5,33 @@
 
 int const NUM_PIXELS = 12;
 int8_t const PIN = 13;
-Adafruit_NeoPixel pixels;
+Adafruit_NeoPixel strip;
 
 void setup() {
-  pixels = Adafruit_NeoPixel(NUM_PIXELS, PIN, NEO_GRB+NEO_KHZ800);
-  pixels.begin();
-   pixels.setBrightness(0x10);
-   pixels.show(); // Init all pixels to "off"
+  strip = Adafruit_NeoPixel(NUM_PIXELS, PIN, NEO_GRB+NEO_KHZ800);
+  strip.begin();
+  
+  strip.setBrightness(0x40);
+  strip.show();   // Init all pixels to "off"
  
 }
 void loop() {
-  // Colors are defined in 0xRRGGBB format.
-  while (true) {
-    for (int i = 0; i <= 12; i++) {
-      pixels.setPixelColor(i, 0xFF0000);
-      pixels.setPixelColor(i+1, 0xFF8000);
-      pixels.setPixelColor(i+2, 0xFFFF00);
-      pixels.setPixelColor(i+3, 0x80FF00);
-      pixels.setPixelColor(i+4, 0x00FF00);
-      pixels.setPixelColor(i+5, 0x00FF80);
-      pixels.setPixelColor(i+6, 0x00FFFF);
-      pixels.setPixelColor(i+7, 0x0080FF);
-      pixels.setPixelColor(i+8, 0x0000FF);
-      pixels.setPixelColor(i+9, 0x8000FF);
-      pixels.setPixelColor(i+10, 0xFF00FF);
-      pixels.setPixelColor(i+11, 0xFF0080);
-      pixels.setPixelColor(i+12, 0xFF0000);
-      pixels.show();
-      delay(100);
+    for (int i = 0; i <= 45; i++) {
+     strip.setPixelColor(0 + (i % 13),strip.Color(255,63,172));
+     strip.setPixelColor(1 + (i % 13),strip.Color(42,06,94));
+     strip.setPixelColor(2 + (i % 13),strip.Color(214,63,173));
+     strip.setPixelColor(3 + (i % 13),strip.Color(255,63,213));
+     strip.setPixelColor(4 + (i % 13),strip.Color(255,45,123));
+     strip.setPixelColor(5 + (i % 13),strip.Color(255,63,0));
+     strip.setPixelColor(6 + (i % 13),strip.Color(65,63,45));
+     strip.setPixelColor(7 + (i % 13),strip.Color(23,63,0));
+     strip.setPixelColor(8 + (i % 13),strip.Color(13,63,144));
+     strip.setPixelColor(9 + (i % 13),strip.Color(255,63,22));
+     strip.setPixelColor(10 + (i % 13),strip.Color(123,63,25));
+     strip.setPixelColor(11 + (i % 13),strip.Color(255,63,116));
+     strip.setPixelColor(12 + (i % 13),strip.Color(255,63,64));
+     strip.setPixelColor(13 + (i % 13),strip.Color(255,63,96));
+     strip.show();
+     delay(10);
     }
-  }
 }
