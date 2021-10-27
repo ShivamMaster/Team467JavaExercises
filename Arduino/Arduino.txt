@@ -1,0 +1,5 @@
+Things I have to do:
+- Red to another color
+- Rainbow
+- Each one is a different color and it rotates around 
+- Red FADE to blue and then red. Go to and back 
